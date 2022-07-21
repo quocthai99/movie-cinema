@@ -1,0 +1,31 @@
+.wrapper {
+    padding: 20px;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .img-film {
+        height: 300px;
+        margin: 20px 0;
+
+        img {
+            height: 100%;
+        }
+
+        button {
+            margin-top: 2px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: var(--white);
+            background-color: rgb(76, 176, 223);
+
+            &:hover {
+                cursor: pointer;
+                opacity: .8;
+            }
+        }
+    }
+}

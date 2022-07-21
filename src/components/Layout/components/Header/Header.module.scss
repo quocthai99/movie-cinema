@@ -1,0 +1,48 @@
+.wrapper {
+    height: 60px;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    background-color: #ccc;
+    width: 1150px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+        height: 100%;
+
+        img {
+            width: 60px;
+            height: 100%;
+        }
+    }
+}
+
+.login-user {
+    height: 100%;
+
+    ul {
+        list-style-type: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        li {
+            padding: 20px;
+
+            &:hover {
+                opacity: .8;
+                cursor: pointer;
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--white);
+            }
+        }
+    }
+}
