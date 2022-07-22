@@ -1,0 +1,44 @@
+.wrapper-film {
+    margin: 20px 0;
+}
+
+.menu-address {
+    width: 300px;
+    padding-right: 24px;
+
+    .address-name {
+        font-size: 16px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, .85);
+        margin: 5px 0;
+    }
+}
+
+.inner-film {
+    display: flex;
+
+    .film-title {
+        margin-left: 10px;
+    }
+}
+
+.hours-film {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 5px 0;
+
+    button {
+        font-weight: 700;
+        font-size: 14px;
+        padding: 5px;
+        color: rgb(85, 216, 85);
+        border: none;
+        cursor: pointer;
+
+    }
+
+    &:hover {
+        opacity: .8;
+    }
+}

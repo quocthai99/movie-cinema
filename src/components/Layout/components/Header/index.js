@@ -21,7 +21,7 @@ export default function Header() {
         <div className={cx('login-user')}>
           <ul>
             <li>
-              <Link to='/'>Login</Link>
+              <Link to='/login'>Login</Link>
             </li>
             <span>/</span>
             <li>

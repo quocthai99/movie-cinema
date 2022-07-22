@@ -5,6 +5,7 @@ import { actFetchData } from './reducer/ListFilmActions'
 import classNames from "classnames/bind"
 import CarouselSlick from "./CarouselSlick"
 import styles from './Home.module.scss'
+import Theater from "./Theater/Theater"
 
 
 const cx = classNames.bind(styles)
@@ -33,8 +34,13 @@ export default function Home() {
             })
           }}>Comming Soon</button>
         </div>
+
         <div className={cx('show-list-film')}>
           <CarouselSlick listFilm={listFilm} />
+        </div>
+
+        <div className={cx('cinema-theater')}>
+          <Theater />
         </div>
       </div>
     </div>
