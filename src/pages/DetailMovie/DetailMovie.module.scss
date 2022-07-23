@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+    .inner {
+        width: 1200px;
+        background-color: #333;
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            padding: 20px;
+
+            .information {
+                display: flex;
+                width: 70%;
+
+                .title {
+                    margin: auto 20px;
+
+                    h3 {
+                        font-size: 3rem;
+                        line-height: 2.5rem;
+                        font-weight: 700;
+                        color: var(--white);
+                        letter-spacing: 3px;
+                    }
+
+                    p {
+                        color: var(--white);
+                        font-weight: both;
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        margin-top: 25px;
+                    }
+                }
+            }
+
+            .option {
+                width: 30%;
+                text-align: center;
+                margin: auto 0;
+            }
+        }
+    }
+}
