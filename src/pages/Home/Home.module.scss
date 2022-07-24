@@ -1,15 +1,16 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    background-color: var(--primary);
 }
 
 .inner {
     width: 1100px;
-    background-color: aquamarine;
     margin: 20px 0;
-
+    
     .show-list-film {
-        background-color: #333;
+        border: 1px solid #ccc;
+        background-color: var(--primary);
     }
 
     .btn-film {

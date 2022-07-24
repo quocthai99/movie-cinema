@@ -10,7 +10,7 @@ import classNames from 'classnames/bind'
 import TabsTicket from './TabsTicket/TabsTicket';
 
 const cx = classNames.bind(styles)
-const desc = [1, 2, 3, 4, ];
+const desc = [1, 2, 3, 4, 5];
 
 export default function DetailMovie() {
     const [value, setValue] = useState(3);
@@ -29,7 +29,9 @@ export default function DetailMovie() {
             <div className={cx('inner')}>
                 <div className={cx('content')}>
                     <div className={cx('information')}>
-                        <img width={300} src={movie.hinhAnh} />
+                        <div className={cx('img-movie')}>
+                            <img width={300} src={movie.hinhAnh} />
+                        </div>
                         <div className={cx("title")} >
                             <h3>{movie.tenPhim}</h3>
                             <p>Tình trạng: Đang chiếu</p>
@@ -37,8 +39,8 @@ export default function DetailMovie() {
                         </div>
                     </div>
                     <div className={cx('option')}>
-                        <Rate style={{fontSize: "3rem"}} tooltips={desc} onChange={setValue} value={value} />
-                        {value ? <span style={{fontSize: '5rem', marginLeft: '50px', color:'yellow' }} className="ant-rate-text">{desc[value - 1]}</span> : ''}
+                        <Rate style={{ fontSize: "3rem" }} tooltips={desc} onChange={setValue} value={value} />
+                        {value ? <span style={{ fontSize: '5rem', marginLeft: '50px', color: 'yellow' }} className="ant-rate-text">{desc[value - 1]}</span> : ''}
                     </div>
                 </div>
                 <div className={cx('buy-ticket')} >

@@ -1,6 +1,7 @@
 import { Tabs } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+
 import { Link } from 'react-router-dom'
 import { Fragment } from 'react';
 import moment from 'moment'
@@ -27,6 +28,10 @@ const Theater = () => {
     }, [])
 
     const renderTheater = () => {
+
+
+
+
         return listTheater?.map((heThongRap, index) => {
             return (
                 <TabPane tab={<img src={heThongRap.logo} width='50px' />} key={index}>
@@ -58,7 +63,8 @@ const Theater = () => {
                                                     <div className={cx('hours-film')}>
                                                         {film.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
                                                             return (
-                                                                <Link key={index} to='/' >
+
+                                                                <Link key={index} to='/checkout' >
                                                                     <button>
                                                                         {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                                     </button>
@@ -83,7 +89,7 @@ const Theater = () => {
 
     return (
         <>
-            <Tabs style={{border: '1px solid #ccc'}} tabPosition={tabPosition}>
+            <Tabs style={{ border: '1px solid #ccc' }} tabPosition={tabPosition}>
                 {renderTheater()}
                 {/* <TabPane tab="Tab 1" key="1">
                     Content of Tab 1
