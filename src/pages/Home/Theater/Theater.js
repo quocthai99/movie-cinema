@@ -29,9 +29,6 @@ const Theater = () => {
 
     const renderTheater = () => {
 
-
-
-
         return listTheater?.map((heThongRap, index) => {
             return (
                 <TabPane tab={<img src={heThongRap.logo} width='50px' />} key={index}>
@@ -64,7 +61,7 @@ const Theater = () => {
                                                         {film.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
                                                             return (
 
-                                                                <Link key={index} to='/checkout' >
+                                                                <Link key={index} to={`/checkout/${lichChieu.maLichChieu}`} >
                                                                     <button>
                                                                         {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                                     </button>

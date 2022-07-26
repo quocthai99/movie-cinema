@@ -13,7 +13,7 @@ const publicRoutes = [
     { path: '/contact', component: Contact },
     { path: '/detail/:id', component: DetailMovie },
     { path: '/login', component: Login, layout: null },
-    { path: '/checkout', component: Checkout, layout: null },
+    { path: '/checkout/:id', component: Checkout, layout: null },
 ]
 
 

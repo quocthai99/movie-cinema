@@ -9,3 +9,27 @@
         min-height: 300px;
     }
 }
+
+.tabs-container {
+    display: flex;
+    margin: 10px;
+
+    .tabs-title {
+        margin-left: 5px;
+
+    }
+}
+
+.tabs-ticket {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+
+    .btn-ticket {
+        background-color: blue;
+        color: var(--white);
+        border: none;
+        padding: 5px 10px;
+        margin-left: 10px;
+    }
+}
