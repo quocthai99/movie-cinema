@@ -1,6 +1,8 @@
-import { Tabs } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { Tabs } from 'antd';
 import { api } from '../../../util/apiConfig';
 
 import { Link } from 'react-router-dom';
@@ -14,18 +16,18 @@ const { TabPane } = Tabs;
 const cx = classNames.bind(styles)
 
 
-
-
 const TabsTicket = () => {
-    const [tabPosition, setTabPosition] = useState('left');
-    const theater = useSelector(state => state.listTheaterReducer.listTheater)
     const dispatch = useDispatch()
+    const tabs = useSelector(state => state.tabTicketReducer.tabsTicket?.heThongRapChieu)
+    console.log(tabs);
+    const params = useParams()
+    const [tabPosition, setTabPosition] = useState('left');
 
     useEffect(() => {
-        api.get("QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01")
+        api.get(`QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${params.id}`)
             .then(result => {
                 dispatch({
-                    type: "LIST_THEATER",
+                    type: "TABS_TICKET",
                     payload: result.data.content
                 })
             })
@@ -33,7 +35,7 @@ const TabsTicket = () => {
 
     const renderTheater = () => {
         return (
-            theater?.map((htr, index) => {
+            tabs?.map((htr, index) => {
                 return (
                     <TabPane
                         tab={
@@ -44,7 +46,7 @@ const TabsTicket = () => {
                         }
                         key={index}>
 
-                        {htr.lstCumRap?.map((cumRap, index) => {
+                        {htr.cumRapChieu?.map((cumRap, index) => {
                             return (
                                 <div key={index}>
                                     <div className={cx("tabs-container")}>
@@ -55,16 +57,14 @@ const TabsTicket = () => {
                                         </div>
                                     </div>
                                     <div className={cx("tabs-ticket")}>
-                                        {cumRap.danhSachPhim.slice(1, 5)?.map((lichChieu) => {
-                                            return lichChieu.lstLichChieuTheoPhim?.slice(0, 1).map((maLichChieu, index) => {
-                                                return (
-                                                    <Link key={index} to={`/checkout/${maLichChieu.maLichChieu}`} >
-                                                        <button className={cx("btn-ticket")}>
-                                                            {moment(maLichChieu.ngayChieuGioChieu).format('hh:mm A')}
-                                                        </button>
-                                                    </Link>
-                                                )
-                                            })
+                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                            return (
+                                                <Link key={index} to={`/checkout/${lichChieu.maLichChieu}`} >
+                                                    <button className={cx("btn-ticket")}>
+                                                        {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                                                    </button>
+                                                </Link>
+                                            )
                                         })}
                                     </div>
                                 </div>

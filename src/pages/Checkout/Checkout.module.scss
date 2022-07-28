@@ -3,16 +3,36 @@
     justify-content: center;
 
     .inner {
-        width: 1200px;
+        width: 1300px;
         background-color: #ccc;
         display: flex;
-
-        .content-left {
-            width: 70%;
-        }
-
-        .content-right {
-            width: 30%;
-        }
     }
+}
+
+.content-left {
+    width: 70%;
+}
+
+.content-right {
+    width: 30%;
+}
+
+.silver {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+    background-color: rgba(123, 122, 122);
+}
+
+.red {
+    cursor: no-drop;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(232, 76, 76);
+    border: none;
+    border-radius: 5px;
+    margin: 15px;
 }

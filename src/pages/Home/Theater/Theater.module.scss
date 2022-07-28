@@ -36,9 +36,9 @@
         border: none;
         cursor: pointer;
 
+        &:hover {
+            opacity: .8;
+        }
     }
 
-    &:hover {
-        opacity: .8;
-    }
 }
