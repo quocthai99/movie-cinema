@@ -1,7 +1,7 @@
 
 
 const initialState = {
-    data: null,
+    data: {},
     error: null,
 }
 

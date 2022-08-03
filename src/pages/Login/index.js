@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { fetchData } from './reducer/LoginActions'
 
@@ -37,8 +37,8 @@ export default function Login() {
     }
 
     const renderNoti = () => {
-        const {error} = props
-        return error && <div style={{color: 'red'}}>{error.response.data.content}</div>
+        const { error } = props
+        return error && <div style={{ color: 'red' }}>{error.response.data.content}</div>
     }
 
     return (

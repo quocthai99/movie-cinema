@@ -17,22 +17,23 @@
     width: 30%;
 }
 
-.silver {
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin: 15px;
-    background-color: rgba(123, 122, 122);
+
+.content-head {
+    display: flex;
+    justify-content: center;
 }
 
-.red {
-    cursor: no-drop;
-    width: 35px;
-    height: 35px;
-    background-color: rgba(232, 76, 76);
-    border: none;
-    border-radius: 5px;
-    margin: 15px;
+.content-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 20px;
+    padding: 25px;
+}
+
+.btn-buy {
+    button {
+        color: var(--white);
+        background-color: green;
+    }
 }

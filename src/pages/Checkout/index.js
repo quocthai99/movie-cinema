@@ -4,17 +4,20 @@ import { Fragment, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 import { actFetchData } from "./reducer/TicketRoomActions"
+import { CloseOutlined } from '@ant-design/icons'
 
+import "./Checkout.scss"
 import classNames from "classnames/bind"
 import styles from "./Checkout.module.scss"
 
 const cx = classNames.bind(styles)
 
 export default function Checkout() {
-  const { ticketRoom } = useSelector(state => state.ticketRoomReducer)
+  const { ticketRoom, danhSachGheDangDat } = useSelector(state => state.ticketRoomReducer)
+  const { data } = useSelector(state => state.loginReducer)
   const dispatch = useDispatch()
   const params = useParams()
-  console.log(ticketRoom);
+  console.log(danhSachGheDangDat);
 
   const { thongTinPhim, danhSachGhe } = ticketRoom
 
@@ -24,9 +27,23 @@ export default function Checkout() {
 
   const renderSeats = () => {
     return danhSachGhe?.map((ghe, index) => {
+
+      let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : "";
+      let classGheDaDat = ghe.daDat === true ? 'gheDaDat' : "";
+
+      let classGheDangDat = "";
+      let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === ghe.maGhe)
+      if (indexGheDD !== -1) {
+        classGheDangDat = 'gheDangDat'
+      }
       return (
         <Fragment key={index}>
-          {ghe.loaiGhe === "Vip" ? <button className={cx("red")}>{ghe.stt}</button> : <button className={cx("silver")}>{ghe.stt}</button>}
+          <button onClick={() => {
+            dispatch({
+              type: "DAT_VE",
+              payload: ghe
+            })
+          }} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDaDat} ${classGheDangDat} `} key={index} >{ghe.daDat ? <CloseOutlined /> : ghe.stt}</button>
         </Fragment>
       )
     })
@@ -38,10 +55,10 @@ export default function Checkout() {
     <div className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx("content-left")}>
-          <div>
+          <div className={cx("content-head")}>
             header
           </div>
-          <div>
+          <div className={cx("content-body")}>
             {renderSeats()}
           </div>
         </div>
@@ -53,12 +70,28 @@ export default function Checkout() {
             <p>{thongTinPhim?.ngayChieu} - {thongTinPhim?.gioChieu}</p>
           </div>
           <div style={{ display: "flex", justifyContent: "space-between" }} >
-            <h4>Ghe</h4>
-            <span>0</span>
+            <span>Ghe</span>
+            {danhSachGheDangDat?.map((gheDD, index) => {
+              return (
+                <span key={index} >{gheDD.stt}</span>
+              )
+            })}
+          </div>
+          <div>
+            <span>
+              {danhSachGheDangDat?.reduce((total, ghe, index) => {
+                return total += ghe.giaVe
+              }, 0)}
+            </span>
           </div>
 
           <div>
             <h4>Email</h4>
+            <span>{data.email}</span>
+          </div>
+
+          <div className={cx("btn-buy")}>
+            <button>Dat Ve</button>
           </div>
         </div>
       </div>

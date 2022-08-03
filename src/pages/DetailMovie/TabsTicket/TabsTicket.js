@@ -57,7 +57,7 @@ const TabsTicket = () => {
                                         </div>
                                     </div>
                                     <div className={cx("tabs-ticket")}>
-                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                        {cumRap.lichChieuPhim.slice(0,10)?.map((lichChieu, index) => {
                                             return (
                                                 <Link key={index} to={`/checkout/${lichChieu.maLichChieu}`} >
                                                     <button className={cx("btn-ticket")}>
